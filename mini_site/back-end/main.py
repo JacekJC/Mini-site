@@ -3,6 +3,7 @@ import fastapi.middleware.cors
 import sqlite3
 import json
 import fastapi.responses as api_response
+import os.path
 
 
 app = fastapi.FastAPI()
@@ -91,7 +92,9 @@ def update_database_data(table, model_id, data):
 @app.get('/get_model/{model_id}/thumbnail')
 async def get_model_thumbnail(model_id: str):
     actual_url = 'files/' + model_id + "/" + model_id + "_thumbnail.jpg"
-    return api_response.FileResponse(actual_url)
+    if(os.path.isfile(actual_url)):
+        return api_response.FileResponse(actual_url)
+    return api_response.FileResponse('files/thumbnail_not_found.jpg')
 
 @app.get('/get_model/{model_id}')
 async def get_model(model_id: str):
