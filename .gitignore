@@ -34,3 +34,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+mini_site/back-end/files/0/0_thumbnail.jpg
+mini_site/back-end/files/1/1_thumbnail.jpg

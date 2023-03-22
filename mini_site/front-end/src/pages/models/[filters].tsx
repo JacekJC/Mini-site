@@ -71,8 +71,14 @@ export function Model_list(props)
     return models.map((val : [], index : number) => {
         console.log(val);
         return <div class={model_tile_styles.model_tile} id={val[0]} key={index}> 
-            <p> {val} </p>
             <img src = {thumbnails[index]}></img>
+            <div>
+                <p> {val[2]} </p>
+                <div className={model_tile_styles.sub_div}>
+                    <p> {val[1]} </p>
+                    <p> {val[3]} </p>
+                </div>
+            </div>
         </div>;
         }
     )

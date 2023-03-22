@@ -1,5 +1,7 @@
 .models_grid
 {
+    margin: 0.5vw;
     display: flex;
     flex-direction: row;
+    gap: 0.5vw;
 }

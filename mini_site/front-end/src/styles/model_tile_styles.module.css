@@ -1,11 +1,12 @@
 .model_tile
 {
+    position: relative;
     width: 20vh;
     height: 20vh;
     display: flex;
     flex-direction: column;
     padding: 0.4vh;
-    background-color: gray;
+    background-color: rgb(34, 34, 34);
     align-content: center;
     text-align: center;
     align-items: center;
@@ -13,13 +14,28 @@
 
 .model_tile p 
 {
+    background-color: rgba(0.2, 0.2, 0.2, 0.8);
     text-align: center;
     width: 100%;
+    font-size: 2em;
+    transform: translate(0, 75%);
     user-select: none;
 }
 
 .model_tile img{
-    margin-top: 1em;
-    width: 80%;
+    width: 100%;
     user-select: none;
+}
+
+.model_tile div
+{
+    transform: translate(0, -100%);
+    position: static;
+    height: 100%;
+    width: 100%;
+}
+
+.model_tile div .sub_div
+{
+    position: relative;
 }
