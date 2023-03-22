@@ -1,0 +1,44 @@
+.high_res_img
+{
+
+}
+
+.thumbnail_img
+{
+    width: 300px;
+    height: 300px;
+}
+
+.model_data_div
+{
+    position: absolute;
+    width: 30vw;
+    height: 100vh;
+    right: 10vw;
+    background-color: rgb(54, 54, 54);
+    padding: 4px;
+}
+
+.horizontal_div
+{
+    margin-bottom: 4px;
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.horizontal_div p{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    flex-grow: 1;
+    text-align: center;
+    background-color: black;
+    margin-right: 1px;
+    margin-left: 1px;
+}
+
+.horizontal_div p.main
+{
+    font-size: 3em;
+}

@@ -1,0 +1,25 @@
+.model_tile
+{
+    width: 20vh;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0.4vh;
+    background-color: gray;
+    align-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.model_tile p 
+{
+    text-align: center;
+    width: 100%;
+    user-select: none;
+}
+
+.model_tile img{
+    margin-top: 1em;
+    width: 80%;
+    user-select: none;
+}
