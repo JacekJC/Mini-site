@@ -4,6 +4,26 @@ import model_tile_styles from '@/styles/model_tile_styles.module.css';
 import models_page_styles from '@/styles/models_page_styles.module.css';
 
 
+class thumbnail_request_queue
+{
+    queue = [];
+    doing = false;    
+
+    add_request(model_id : number){
+      this.queue.push(model_id);
+      this.do_request(); 
+    };
+
+    do_request(){
+        if(this.doing)
+            return;
+        if(this.queue.length > 0)
+        {
+            get   
+        }
+    }
+}
+
 
 export default function get_models()
 {
@@ -21,7 +41,9 @@ export default function get_models()
         let acc_data = new_d[0];
         acc_data.forEach((element) => 
         {
-            get_model_thumbnail(element[0]);
+            console.log(element[0]);
+            //get_model_thumbnail(element[0]);
+            thumbnail_request_queue.add_request(element[0]);
         })
     }
 
@@ -34,7 +56,44 @@ export default function get_models()
         {
             set_displayed_models_thumbnails((prev_state) => [...prev_state, url]);
         }
+        /*let ele : HTMLElement | null = document.getElementById('model' + Number);
+        let img : Element | undefined = ele?.children[0];
+        if(img != null)
+            img.src = url;*/
         return url;
+    }
+    
+    class thumbnail_request_queue
+    {
+        static queue : number[] = [];
+        static doing = false;    
+
+        static add_request(model_id : number){
+          this.queue.push(model_id);
+        this.do_request(); 
+        };
+
+        static do_request(){
+            if(this.doing)
+                return;
+            if(this.queue.length > 0)
+            {
+                let prom = new Promise((resolve, reject) => {
+                    let url = get_model_thumbnail(this.queue[0]);
+                    if(url != null)
+                    {
+                        resolve('URL');
+                    }
+                    reject
+                    {
+                        reject('Error');
+                    }
+                });
+                this.queue.pop(0);
+                prom.then((message) => this.do_request());
+                prom.catch((error) => this.do_request());
+            }
+        };
     }
 
     useEffect(() => {
@@ -70,7 +129,7 @@ export function Model_list(props)
 
     return models.map((val : [], index : number) => {
         console.log(val);
-        return <div class={model_tile_styles.model_tile} id={val[0]} key={index}> 
+        return <div class={model_tile_styles.model_tile} id={"model" + index} key={index}> 
             <img src = {thumbnails[index]}></img>
             <div>
                 <p> {val[2]} </p>
