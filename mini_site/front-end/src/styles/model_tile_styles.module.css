@@ -1,5 +1,6 @@
 .model_tile
 {
+    border: 0;
     position: relative;
     width: 20vh;
     height: 20vh;
@@ -10,6 +11,11 @@
     align-content: center;
     text-align: center;
     align-items: center;
+}
+
+.model_tile:hover
+{
+    background-color: rgb(50, 50, 50);
 }
 
 .model_tile p 
